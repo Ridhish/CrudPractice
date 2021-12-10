@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Fitness First
+Version: 1.0.0
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-static/js/"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-static/js/"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"><!--<![endif]-->
+<!-- Begin Head -->
+<head>
+<title>Information</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="description" content="GYM">
+<meta name="keywords" content="gym, html template, gym template, fitness, workout, body, force">
+<meta name="author" content="">
+<meta name="MobileOptimized" content="320">
+<!--Srart Style -->
+<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!-- End Style -->
+</head>
+<body>
+
+<!--Offer section start-->
+<div data-scroll-index='1'  style="width:100%;float:left;">
+<div class="gm_offer_wrapper gm_toppadder80 gm_bottompadder80">
+	<div class="container">
+		<div class="row">
+			
+	
+				<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+					<div class="gm_bnr_form">
+						<h3>Information</h3>
+						<form method="post" enctype="multipart/form-data">
+							<input type="text" placeholder="Enter Name" name="name" class="require">
+							<input type="text" placeholder="Enter Phone #" name="phone" class="require"><br>
+							<label>Select Your Photo</label><input type="file" placeholder="Enter Phone #" name="pic" class="require"><br>
+							<button type="submit" class="gm_btn submitForm" data-form-type="inquiry">Submit</button>
+						</form>
+					</div>
+				</div>
+
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<div>
+						<h3>Database</h3>
+                        <table cellpadding="10" cellspacing="10" width="100%" style="table-layout: fixed; border:#000 1px solid;">
+                            <tr><th style="padding: 10px; border-bottom: #000 1px solid;">Sr.</th>
+								<th style="padding: 10px; border-bottom: #000 1px solid;">Photo</th>
+								<th style="padding: 10px; border-bottom: #000 1px solid;" width="40%">Name</th>
+								<th style="padding: 10px; border-bottom: #000 1px solid;">Phone # </th>
+								<th style="padding: 10px; border-bottom: #000 1px solid;">Actions</th></tr>
+                            {% for i in getinfo %}
+                            <tr><td style="padding: 10px; border-bottom: #000 1px solid;">{{loop.index}}</td>
+								<td style="padding: 10px; border-bottom: #000 1px solid;"><img src="{{i['pic']}}" ></td>
+								<td style="padding: 10px; border-bottom: #000 1px solid;" width="40%">{{i["name"]}}</td>
+								<td style="padding: 10px; border-bottom: #000 1px solid;">{{i["phone"]}}</td>
+								<td style="padding: 10px; text-align: center; border-bottom: #000 1px solid;"><a href="/update?id={{i['id']}}"><img src="static/images/actions/edit.png" alt="Edit" width="25%" height="auto"></a>&nbsp;<a href="/delete/{{i['id']}}"><img src="static/images/actions/del.png" alt="Delete" width="24%" height="auto"></a></td></tr>
+                            {% endfor %}
+                        </table>
+					</div>
+				</div>
+        
+		</div>
+	</div>
+</div>
+</div>
+<!--Offer section start-->
+<!--Main static/js/ file Style--> 
+<script type="text/javascript" src="static/js//jquery.static/js/"></script> 
+<script type="text/javascript" src="static/js//bootstrap.static/js/"></script>
+<script type="text/javascript" src="static/js//owl.carousel.static/js/"></script>
+<script type="text/javascript" src="static/js//jquery.magnific-popup.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/jquery.themepunch.tools.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/jquery.themepunch.revolution.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/revolution.extension.actions.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/revolution.extension.carousel.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/revolution.extension.kenburn.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/revolution.extension.layeranimation.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/revolution.extension.migration.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/revolution.extension.navigation.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/revolution.extension.parallax.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/revol/revolution.extension.slideanims.min.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/countto/jquery.countTo.static/js/"></script>
+<script type="text/javascript" src="static/js//plugin/countto/jquery.appear.static/js/"></script>
+<script src="http://maps.google.com/maps/api/static/js/?key=AIzaSyA46Q_0Kfate6HF_0GdZyLSQwJ8Y_4Wck4&sensor=true"></script>
+<script type="text/javascript" src="static/js//gmaps.static/js/"></script>
+<script type="text/javascript" src="static/js//custom.static/js/"></script> 
+<script>$(function() { $.scrollIt(); });</script> 
+<script>
+    var map;
+    $(document).ready(function(){
+      map = new GMaps({
+        el: '#map',
+        zoom: 14,
+        lat: -12.043333,
+        lng: -77.028333,
+		scrollwheel: false,
+		draggable:false,
+		zoomControl: false,
+		navigationControl: false,
+		mapTypeControl: false,
+		scaleControl: false,
+		disableDoubleClickZoom: true,
+		streetViewControl : false,
+		overviewMapControl: false,
+		panControl : false
+      });
+	  map.addMarker({
+        lat: -12.042,
+        lng: -77.028333,
+        title: 'Marker with InfoWindow',
+        infoWindow: {
+          content: '<p>70 Bowman St. South<br> Windsor, CT 06074</p>'
+        }
+      });
+   
+    });
+  </script>
+<!--Main static/js/ file End-->
+</body>
+</html>
