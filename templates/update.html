@@ -36,10 +36,10 @@ Version: 1.0.0
 						<h3>Information</h3>
                         {% for i in getinfo %}
 						<form method="post" enctype="multipart/form-data" action="/updater">
-							<input type="hidden" name="pid" value="{{i['id']}}">
-							<input type="text" placeholder="Enter Name" name="name" class="require" value="{{i['name']}}">
-							<input type="text" placeholder="Enter Phone #" name="phone" class="require" value="{{i['phone']}}">
-							<img src="{{i['pic']}}" width="50%" height="auto" ><br><br>
+							<input type="hidden" name="pid" value="{{i.id}}">
+							<input type="text" placeholder="Enter Name" name="name" class="require" value="{{i.name}}">
+							<input type="text" placeholder="Enter Phone #" name="phone" class="require" value="{{i.phone}}">
+							<img src="{{i.pic}}" width="50%" height="auto" ><br><br>
 							<label>Select Your Photo</label><input type="file" placeholder="Enter Pic #" name="pic"><br>
 							<button type="submit" class="gm_btn submitForm" data-form-type="inquiry">Update</button>
 						</form>
